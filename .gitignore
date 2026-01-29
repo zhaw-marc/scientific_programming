@@ -30,6 +30,9 @@ dist/
 # Jupyter kernelspec files
 .jupyter/
 
+# Kaggle API key
+kaggle.json
+
 # Single files / solutions
 solution_challenge_week_01.ipynb
 solution_challenge_week_01.html
