@@ -7,7 +7,7 @@
 
 
 #-----------------------------------------------------------------------------
-# Webscraping with Python and Beautifulsoup
+# Web Scraping with Python and Beautifulsoup
 #-----------------------------------------------------------------------------
 
 1.) Run the Jupyter notebook 'webscraping_skipass_prices.ipynb' step by step.
