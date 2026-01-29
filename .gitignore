@@ -79,7 +79,6 @@ app.py
 # Week_14/
 
 
-
-git rm --cached Week_05/challenge/solution_challenge_week_05
+git rm --cached Week_01/challenge/Titanic-Dataset.csv
 git commit -m '...'
 git push -u origin master
