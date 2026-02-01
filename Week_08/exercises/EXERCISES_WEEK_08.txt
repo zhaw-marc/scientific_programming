@@ -105,10 +105,20 @@ read_multiple()
     functions where this parameter is listed. Save the extracted text to a file.
 
 #----------------------------------------------------------------------
+# Procedural programming: Optical character recognition (OCR) example
+#----------------------------------------------------------------------
+
+1.) Get the OpenAI key from Moodle.
+
+2.) Run the Jupyter notebook 'pdf_slides_to_video.ipynb' step by step.
+
+3.) Use the example to generate your own video (note that the file size can be large).
+
+#----------------------------------------------------------------------
 # Procedural programming: LLM + RAG
 #----------------------------------------------------------------------
 
-1.) Get the OpenAI key from the credentials.json file on Moodle.
+1.) Get the OpenAI key from Moodle.
 
 2.) Run the Jupyter notebook 'retrieval_augmented_generation.ipynb' step by step.
 

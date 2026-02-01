@@ -30,6 +30,15 @@ dist/
 # Jupyter kernelspec files
 .jupyter/
 
+# Temporary assets
+temp_assets
+
+# Video files
+.mp3
+.mp4
+.mov
+.mwv
+
 # Kaggle API key
 kaggle.json
 
