@@ -41,7 +41,8 @@ xlwings
 lxml_html_clean
 statsmodels
 squarify
-openai==0.28
+openai>=1.0.0
+python-dotenv>=1.0.0
 opencv-python-headless
 langchain==0.3.7
 sqlalchemy==2.0.35
