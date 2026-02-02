@@ -63,7 +63,7 @@
 # Text-to-SQL with OpenAI API and LangChain
 #----------------------------------------------------------------------
 
-1.) Make sure that the file ./data/credentials.json contains a valid API-key.
+1.) Make sure that the file .env (in the repository root) contains a valid API-key (OPENAI_API_KEY=...).
     Use your own or the one provided on the course day on Moodle (Week 06).
     Replace the sk--XXXX ... string in the file with the API-key.
 
@@ -90,7 +90,7 @@
 # Augmented analytics with OpenAI API
 #----------------------------------------------------------------------
 
-1.) Make sure that the file ./data/credentials.json contains a valid API-key.
+1.) Make sure that the file .env (in the repository root) contains a valid API-key (OPENAI_API_KEY=...).
     Use your own or the one provided on the course day on Moodle (week 06).
     Replace the sk--XXXX ... string in the file with the API-key.
 
