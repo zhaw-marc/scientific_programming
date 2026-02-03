@@ -14,4 +14,3 @@ Week_05\exercises\flask_matplotlib_example\templates
 
 --- Titanic-Dataset.csv ---
 Week_02\challenge
-
