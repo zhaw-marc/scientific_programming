@@ -24,7 +24,8 @@
 				"github.copilot-chat",
 				"mechatroner.rainbow-csv",
 				"tal7aouy.icons",
-				"anthropic.claude-code"
+				"anthropic.claude-code",
+				"analytic-signal.preview-html"
 			],
 			"settings": {
 				"workbench.colorTheme": "Default Dark+",
