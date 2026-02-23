@@ -42,9 +42,6 @@ temp_assets
 # Kaggle API key
 kaggle.json
 
-# Claude Code
-CLAUDE.md
-
 # Single files / solutions
 solution_challenge_week_01.ipynb
 solution_challenge_week_01.html
