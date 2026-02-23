@@ -192,8 +192,4 @@ print("Tables in scidb:", tables)
 
 ### Data persistence
 
-Database data is stored in the Docker volume `postgres-data`, so it persists across Codespace restarts. To reset the database, delete the volume:
-
-```bash
-docker compose -f .devcontainer/docker-compose.yml down -v
-```
+Database data is stored in the Docker volume `postgres-data`, so it persists across Codespace restarts.
