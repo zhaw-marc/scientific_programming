@@ -165,46 +165,29 @@ A PostgreSQL 16 database is included in your Codespace and starts automatically 
 | User      | `postgres`|
 | Password  | `geheim`  |
 
-### Verify the database is running
-
-Open a Terminal in your Codespace and run:
-
-```bash
-# Check that the db container is up
-docker ps
-
-# Connect interactively with psql
-psql -h db -p 5432 -U postgres -d scidb
-```
-
-Enter `geheim` when prompted for the password. Type `\q` to exit psql.
-
-### Connect from Python
-
-Use `psycopg2` or `SQLAlchemy` (both are available in the Codespace):
+### Connect from Python (copy/paste the following code to a Jupyter Notebook or .py file)
 
 ```python
-import psycopg2
+from sqlalchemy import create_engine, text, inspect
 
-conn = psycopg2.connect(
-    host="db",
-    port=5432,
-    dbname="scidb",
-    user="postgres",
-    password="geheim"
-)
-cursor = conn.cursor()
-cursor.execute("SELECT version();")
-print(cursor.fetchone())
-conn.close()
-```
-
-Or with SQLAlchemy:
-
-```python
-from sqlalchemy import create_engine
-
+# Connect to the database
 engine = create_engine("postgresql+psycopg2://postgres:geheim@db:5432/scidb")
+
+# Create a sample table and insert a row
+with engine.connect() as conn:
+    conn.execute(text("""
+        CREATE TABLE IF NOT EXISTS sample (
+            id SERIAL PRIMARY KEY,
+            name TEXT NOT NULL
+        )
+    """))
+    conn.execute(text("INSERT INTO sample (name) VALUES ('hello world')"))
+    conn.commit()
+
+# List all tables in the database
+inspector = inspect(engine)
+tables = inspector.get_table_names()
+print("Tables in scidb:", tables)
 ```
 
 ### Data persistence
