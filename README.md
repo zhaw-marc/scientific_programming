@@ -171,26 +171,47 @@ A PostgreSQL 16 database is included in your Codespace and starts automatically 
 ### Connect from Python (copy/paste the following code to a Jupyter Notebook or .py file)
 
 ```python
+import pandas as pd
 from sqlalchemy import create_engine, text, inspect
 
 # Connect to the database
 engine = create_engine("postgresql+psycopg2://postgres:geheim@db:5432/scidb")
 
-# Create a sample table and insert a row
-with engine.connect() as conn:
+# Create table and insert simple sample data
+with engine.begin() as conn:
     conn.execute(text("""
-        CREATE TABLE IF NOT EXISTS sample (
+        CREATE TABLE IF NOT EXISTS my_test_table (
             id SERIAL PRIMARY KEY,
             name TEXT NOT NULL
         )
     """))
-    conn.execute(text("INSERT INTO sample (name) VALUES ('hello world')"))
-    conn.commit()
 
-# List all tables in the database
+    # Add age column for existing table versions
+    conn.execute(text("ALTER TABLE my_test_table ADD COLUMN IF NOT EXISTS age INTEGER"))
+
+    # Keep data simple and deterministic for repeated runs
+    conn.execute(text("DELETE FROM my_test_table"))
+    conn.execute(
+        text("INSERT INTO my_test_table (name, age) VALUES (:name, :age)"),
+        [
+            {"name": "peter", "age": 31},
+            {"name": "alice", "age": 24},
+            {"name": "bob", "age": 29},
+            {"name": "charlie", "age": 35},
+        ],
+    )
+
+# List all tables
 inspector = inspect(engine)
 tables = inspector.get_table_names()
 print("Tables in scidb:", tables)
+
+# DataFrame output
+with engine.connect() as conn:
+    result = conn.execute(text("SELECT id, name, age FROM my_test_table ORDER BY id"))
+    df = pd.DataFrame(result.fetchall(), columns=result.keys())
+
+df
 ```
 
 ### Data persistence
