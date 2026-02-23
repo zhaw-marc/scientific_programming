@@ -218,14 +218,9 @@ from sqlalchemy import create_engine, text
 
 engine = create_engine("postgresql+psycopg2://postgres:geheim@db:5432/scidb")
 
-with engine.begin() as conn:
-    conn.execute(text("CREATE TABLE IF NOT EXISTS my_test_table (id SERIAL PRIMARY KEY, name TEXT, age INTEGER)"))
-    conn.execute(text("DELETE FROM my_test_table"))
-    conn.execute(text("INSERT INTO my_test_table (name, age) VALUES (:name, :age)"),
-                 [{"name": "alice", "age": 24}, {"name": "bob", "age": 29}])
-
 with engine.connect() as conn:
-    df = pd.read_sql(text("SELECT * FROM my_test_table ORDER BY id"), conn)
+    result = conn.execute(text("SELECT * FROM my_test_table ORDER BY id"))
+    df = pd.DataFrame(result.fetchall(), columns=result.keys())
 
 df
 ```
