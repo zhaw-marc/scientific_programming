@@ -105,6 +105,7 @@ To sync your fork (origin) and GitHub Codespaces environment with the upstream r
   # Option A: Commit your changes
   git add .
   git commit -m "Your commit message"
+  git push origin master
    
   # Option B: Temporarily stash your changes
   git stash
