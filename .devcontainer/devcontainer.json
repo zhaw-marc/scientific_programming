@@ -3,6 +3,16 @@
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
 	"workspaceFolder": "/workspace",
+	"forwardPorts": [5050, 5432],
+	"portsAttributes": {
+		"5050": {
+			"label": "pgAdmin",
+			"onAutoForward": "openBrowserOnce"
+		},
+		"5432": {
+			"label": "PostgreSQL"
+		}
+	},
 
 	"customizations": {
 		"vscode": {
